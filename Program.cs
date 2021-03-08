@@ -1,25 +1,21 @@
 ﻿using System;
 
+
 namespace Employee_Wages_Problem
 {
-    class Program
-    {
-        static void Main(string[] args)
-       {
+	class Program
+	{
+		//static void Main(string[] args)
+		//{
 			const int IS_PART_TIME = 1;
 			const int IS_FULL_TIME = 2;
-			const int EMP_RATE_PER_HOUR = 20;
-			const int NUM_OF_WORKING_DAYS = 2;
-			const int MAX_HRS_IN_MONTH = 10;
-
-			static int computeEmpWage()
+			static int computeEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
 			{
 				//variables
-
 				int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
 				//computation
 
-				while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
+				while (totalEmpHrs <= maxHoursPerMonth && totalWorkingDays < numOfWorkingDays)
 				{
 					totalWorkingDays++;
 					Random random = new Random();
@@ -39,17 +35,21 @@ namespace Employee_Wages_Problem
 					totalEmpHrs += empHrs;
 					Console.WriteLine("day#:" + totalWorkingDays + " Emp Hrs :" + empHrs);
 				}
-				int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
-				Console.WriteLine("total emp wage:" + totalEmpWage);
+				int totalEmpWage = totalEmpHrs * empRatePerHour;
+				Console.WriteLine("total emp wage:" + company + " is: " + totalEmpWage);
 				return totalEmpWage;
 			}
 
-			static void main(string[] args)
+			static void Main(string[] args)
 			{
-				computeEmpWage();
+				computeEmpWage("DMART", 20, 2, 10);
+				computeEmpWage("Reliance", 10, 4, 20);
+
 			}
 		}
-
-
 	}
-}
+//}
+
+	
+
+
